@@ -2,8 +2,12 @@ package edu.paulina_vazquez.reto1.ui;
 
 import java.util.Scanner;
 
+import static edu.paulina_vazquez.reto1.process.CalculadoraMasaCorporal.calcularIndiceMasaCorporal;
+import static edu.paulina_vazquez.reto1.process.CalculadoraMasaMagra.calcularMasaMagra;
+import static edu.paulina_vazquez.reto1.process.CalculadoraMetabolismoBasal.calcularMetabolismoBasal;
+
 public class CLI {
-    public static void showMenu(){
+    public static void showMenu() {
 
         System.out.println("A. Cálculo de masa corporal (índice de masa corporal)");
         System.out.println("B. Cálculo de masa corporal magra");
@@ -14,19 +18,19 @@ public class CLI {
         Scanner scanner = new Scanner(System.in);
         String opcion = scanner.nextLine();
 
-    }
-    private static void Switch(String opcion) {
-            case "A"
-                CalculadoraMasaCorporal();
+        switch (opcion.toUpperCase()){
+            case "A":
+                calcularIndiceMasaCorporal();
                 break;
-            case "B"
-                CalculadoraMasaMagra();
+            case "B":
+                calcularMasaMagra();
                 break;
-            case "C"
-
+            case "C":
+                calcularMetabolismoBasal();
                 break;
-            default
+            default:
                 System.out.println("Opcion no valida");
-
         }
+    }
+
 }
