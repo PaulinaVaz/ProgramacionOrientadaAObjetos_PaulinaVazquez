@@ -2,15 +2,12 @@ package edu.paulina_vazquez.reto1.process;
 
 import java.util.Scanner;
 
-/**
- * Utilidad
- */
 public class CalculadoraMasaCorporal {
     /**
-     * Este metodo sirve para calcular el indice de masa corporal de una persona
-     * @param estatura de la persona en cm
-     * @param peso de la persona en kg
-     * @return indice de masa corporal
+     * Esta clase es la encargada de calcular el indice
+     * de masa corporal del usuario mediante su peso y
+     * su estatura. Se clasificara su condicion
+     * dependiendo de su indice de masa corporal.
      */
     public static void calcularIndiceMasaCorporal(){
 
