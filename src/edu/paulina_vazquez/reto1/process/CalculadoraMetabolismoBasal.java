@@ -24,7 +24,7 @@ public class CalculadoraMetabolismoBasal{
 
         if (sexo.equals("mujer")){
             double metabolismoBasal = 655.1 + (9.563 * peso) + (1.85 * estatura) - (4.676 * edad);
-            System.out.println("Su metabolismo basal es" + metabolismoBasal);
+            System.out.println("Su metabolismo basal es " + metabolismoBasal);
         } else if (sexo.equals("hombre")) {
             double metabolismoBasal = 66.5 + (13.75 * peso) + (5.003 * estatura) - (6.775 * edad);
             System.out.println("Su metabolismo basal es " + metabolismoBasal);
