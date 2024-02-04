@@ -19,26 +19,27 @@ public class CLI {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Ingrese la letra de la opción deseada");
-        System.out.println("a. Comprar cajas de papel.");
-        System.out.println("b. Vender cajas de papel.");
-        System.out.println("c. Mostrar reporte");
-        System.out.println("d. Salir del programa");
-        String opcion = scanner.nextLine();
-        int totalDeOperaciones = 0;
+        System.out.println("A. Comprar cajas de papel.");
+        System.out.println("B. Vender cajas de papel.");
+        System.out.println("C. Mostrar reporte");
+        System.out.println("D. Salir del programa");
+        while (true){
+            String opcion = scanner.nextLine();
+            int totalDeOperaciones = 0;
 
             switch (opcion.toUpperCase()) {
-                case "a":
+                case "A":
                     comprarCajas();
                     totalDeOperaciones++;
                     break;
-                case "b":
+                case "B":
                     venderCajas();
                     totalDeOperaciones++;
                     break;
-                case "c":
+                case "C":
                     mostrarReporte();
                     break;
-                case "d":
+                case "D":
                     scanner.close();
                     finalizarPrograma();
                     System.out.println("El total de operaciones es: " + totalDeOperaciones);
@@ -46,5 +47,6 @@ public class CLI {
                 default:
                     System.out.println("Opcion no valida, por favor intente denuevo");
             }
+        }
     }
 }
