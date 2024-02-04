@@ -10,7 +10,6 @@ public class CalculadoraDeCajas {
      * informacion necesaria para elaborar las operaciones
      * de programa.
      */
-    public static int totalDeOperaciones = 0;
     public static double totalDeIngresos = 0;
     public static double totalDeEgresos = 0;
     public static int totalDeCompras = 0;
@@ -53,6 +52,10 @@ public class CalculadoraDeCajas {
 
         double montoDeCajas = compraDeCajas*costoDeCajas;
 
+        /**
+         * Las lineas de codigo 58,59 y 60 fueron programadas con
+         * referencia en chat gpt.
+         */
         totalDeCompras += compraDeCajas;
         totalDeEgresos += montoDeCajas;
         montoTotal -= montoDeCajas;
@@ -96,8 +99,6 @@ public class CalculadoraDeCajas {
      * despedida al usuario.
      */
     public static void finalizarPrograma(){
-        System.out.println("La cantidad total de operaciones realizadas es " +
-                totalDeOperaciones + ".");
         System.out.println("La cantidad total de compras es realizadas es " +
                 totalDeCompras + ".");
         System.out.println("La cantidad total de ventas es realizadas es " +

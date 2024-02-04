@@ -8,7 +8,13 @@ import static edu.paulina_vazquez.reto2.process.CalculadoraDeCajas.mostrarReport
 import static edu.paulina_vazquez.reto2.process.CalculadoraDeCajas.venderCajas;
 
 public class CLI {
-    public static void showMenu(int totalDeOperaciones) {
+    /**
+     * Se encarga de mostrar un menu al usuario para que
+     * se elija la opcion deseada, este dirige al
+     * programa al proceso indico y regresa al menu en
+     * caso de que el usuario no finalice el programa.
+     */
+    public static void showMenu() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -18,7 +24,7 @@ public class CLI {
         System.out.println("c. Mostrar reporte");
         System.out.println("d. Salir del programa");
         String opcion = scanner.nextLine();
-
+        int totalDeOperaciones = 0;
 
             switch (opcion.toUpperCase()) {
                 case "a":
@@ -35,6 +41,7 @@ public class CLI {
                 case "d":
                     scanner.close();
                     finalizarPrograma();
+                    System.out.println("El total de operaciones es: " + totalDeOperaciones);
                     return;
                 default:
                     System.out.println("Opcion no valida, por favor intente denuevo");
