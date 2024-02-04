@@ -11,14 +11,13 @@ public class CLI {
     public static void showMenu(int totalDeOperaciones) {
 
         Scanner scanner = new Scanner(System.in);
-        String opcion;
-        do {
-            System.out.println("Ingrese la letra de la opción deseada");
-            System.out.println("a. Comprar cajas de papel.");
-            System.out.println("b. Vender cajas de papel.");
-            System.out.println("c. Mostrar reporte");
-            System.out.println("d. Salir del programa");
-            opcion = scanner.nextLine();
+
+        System.out.println("Ingrese la letra de la opción deseada");
+        System.out.println("a. Comprar cajas de papel.");
+        System.out.println("b. Vender cajas de papel.");
+        System.out.println("c. Mostrar reporte");
+        System.out.println("d. Salir del programa");
+        String opcion = scanner.nextLine();
 
 
             switch (opcion.toUpperCase()) {
@@ -34,10 +33,11 @@ public class CLI {
                     mostrarReporte();
                     break;
                 case "d":
+                    scanner.close();
                     finalizarPrograma();
+                    return;
                 default:
                     System.out.println("Opcion no valida, por favor intente denuevo");
-                }
-        } while (!(opcion.equals("z")));
+            }
     }
 }
