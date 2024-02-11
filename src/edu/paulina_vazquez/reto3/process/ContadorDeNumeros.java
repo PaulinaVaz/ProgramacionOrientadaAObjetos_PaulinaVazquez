@@ -1,15 +1,14 @@
 package edu.paulina_vazquez.reto3.process;
 
+import edu.paulina_vazquez.reto3.ui.CLI;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class ContadorDeNumeros {
-    Scanner scanner = new Scanner(System.in);
 
-    int filas = scanner.nextInt();
-    int columnas = scanner.nextInt();
-    int[][] matriz = new int[filas][columnas];
-    public void contarNumeros(){
+
+    static int[][] matriz = new int[filas][columnas];
+    public static void contarNumeros(){
         System.out.println("Ingrese el numero de filas");
         System.out.println("Ingrese el numero de columnas");
 
@@ -43,7 +42,7 @@ public class ContadorDeNumeros {
         }
         System.out.println("La suma total de los numeros es "+total);
     }
-    public void imprimirMatriz (){
+    public static void imprimirMatriz(){
         Random random = new Random();
         for (int i = 0; i < filas; i++){
             for (int j = 0; j < columnas; j++){
