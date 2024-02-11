@@ -3,13 +3,23 @@ package edu.paulina_vazquez.reto3.process;
 import java.util.Scanner;
 
 public class DiccionarioDePalabras {
+    /**
+     * Variables necesarias para las acciones a realizar.
+     */
     private static String[] palabras;
     private static String[] significados;
     private static final int cantidadPalabras = 10;
-    static Scanner scanner = new Scanner(System.in);
-    public static String palabra = scanner.nextLine();
 
-    public DiccionarioDePalabras(String[] significado, String[] palabras) {
+
+    /**
+     * Este importa los arreglos desde la clase Main.
+     * @param significados
+     * @param palabras
+     */
+
+    public DiccionarioDePalabras(String[] significados, String[] palabras) {
+        this.palabras = palabras;
+        this.significados = significados;
     }
 
     public static void enlistarPalabras() {
@@ -22,6 +32,7 @@ public class DiccionarioDePalabras {
     public static void buscarPalabras() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese la palabra a buscar");
+        String palabra = scanner.nextLine();
         boolean palabraEncontrada = false;
 
         for (int i = 0; i < cantidadPalabras; i++) {
@@ -42,9 +53,9 @@ public class DiccionarioDePalabras {
         System.out.println("Lista de palabras con detalle: ");
         for (int i = 0; i < cantidadPalabras; i ++){
             System.out.println((i + 1) + ". Palabra: " + palabras[i] + ", la " +
-                    ", la cantidad de caracteres en la palabra son: " +
+                    "cantidad de caracteres en la palabra son: " +
                     palabras[i].length() + ", la cantidad de caracteres en el " +
-                    "significado son: " + significados.length);
+                    "significado son: " + significados[i].length());
         }
     }
 }

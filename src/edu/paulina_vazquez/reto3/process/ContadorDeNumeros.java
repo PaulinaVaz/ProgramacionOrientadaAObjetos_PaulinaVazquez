@@ -1,16 +1,19 @@
 package edu.paulina_vazquez.reto3.process;
 
-import edu.paulina_vazquez.reto3.ui.CLI;
-
 import java.util.Random;
+import java.util.Scanner;
 
 public class ContadorDeNumeros {
-
-
-    static int[][] matriz = new int[filas][columnas];
+    static Scanner scanner = new Scanner(System.in);
+    static int filas;
+    static int columnas;
+    static int[][] matriz;
     public static void contarNumeros(){
         System.out.println("Ingrese el numero de filas");
+        filas = scanner.nextInt();
         System.out.println("Ingrese el numero de columnas");
+        columnas = scanner.nextInt();
+        matriz = new int [filas][columnas];
 
         int total = 0;
         int [] paresFilas = new int[filas];
@@ -18,8 +21,10 @@ public class ContadorDeNumeros {
         int [] imparesFilas = new int[filas];
         int [] imparesColumnas = new int[columnas];
 
+        Random random = new Random();
         for (int i = 0; i < filas; i++){
             for ( int j = 0; j < columnas; j++){
+                matriz [i][j] = random.nextInt(100)+1;
                 if (matriz[i][j] %2 == 0){
                     paresFilas [i]++;
                     paresColumnas [j]++;
@@ -46,8 +51,9 @@ public class ContadorDeNumeros {
         Random random = new Random();
         for (int i = 0; i < filas; i++){
             for (int j = 0; j < columnas; j++){
-                matriz [i][j] = random.nextInt(100) + 1;
+                System.out.println(matriz[i][j] + "\t");
             }
+            System.out.println();
         }
     }
 }
