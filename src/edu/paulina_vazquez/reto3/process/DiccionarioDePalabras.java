@@ -4,25 +4,26 @@ import java.util.Scanner;
 
 public class DiccionarioDePalabras {
     /**
-     * Variables necesarias para las acciones a realizar.
+     *Variables necesarias para la correcta funcion de los
+     *metodos de esta clase.
      */
     private static String[] palabras;
     private static String[] significados;
     private static final int cantidadPalabras = 10;
 
-
-    /**
-     * Este importa los arreglos desde la clase Main.
-     * @param significados
-     * @param palabras
-     */
-
     public DiccionarioDePalabras(String[] significados, String[] palabras) {
+        /**
+         * Contiene los arreglos establecidos en la clase Main.
+         */
         this.palabras = palabras;
         this.significados = significados;
     }
 
     public static void enlistarPalabras() {
+        /**
+         * Elabora la lista de palabras que cpntiene e;l diccionario y se las
+         * muestra al usuario.
+         */
         System.out.println("Las palabras que contiene el diccionario son: ");
         for (int i = 0; i < cantidadPalabras; i++) {
             System.out.println((i + 1) + ". " + palabras[i]);
@@ -30,6 +31,10 @@ public class DiccionarioDePalabras {
     }
 
     public static void buscarPalabras() {
+        /**
+         * Se encarga de buscar una palabra en el diccionario, esta es
+         * ingresada por el usuario, y muestra su significado.
+         */
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese la palabra a buscar");
         String palabra = scanner.nextLine();
@@ -48,6 +53,11 @@ public class DiccionarioDePalabras {
         }
     }
     public static void mostrarDetalles (){
+        /**
+         * Su funcion es mostrar las palabras existentes en el diccionario,
+         * cuantos caracteres contienen y la cantidad de caracteres de su
+         * significado.
+         */
         System.out.println("La cantidad total de palabras existentes en el " +
                 "diccionarios son " + cantidadPalabras);
         System.out.println("Lista de palabras con detalle: ");
