@@ -1,5 +1,6 @@
 package edu.paulina_vazquez.reto4;
 
+import edu.paulina_vazquez.reto4.process.VentasDeBoleto;
 import edu.paulina_vazquez.reto4.ui.CLI;
 
 public class Main {
@@ -8,9 +9,10 @@ public class Main {
      * ademas, de atrapar los errores y mostar un
      * mensaje ante esta situacion.
      */
+    static VentasDeBoleto ventasDeBoleto = new VentasDeBoleto();
     public static void main(String[] arg) {
         try{
-            CLI.showMenu();
+            CLI.showMenu(ventasDeBoleto);
         }catch (Exception e){
             System.out.println("Error inesperado " + e);
         }
