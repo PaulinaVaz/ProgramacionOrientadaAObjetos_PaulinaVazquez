@@ -7,7 +7,8 @@ public class Main {
     /**
      * Es la encargada activar el menu y,
      * ademas, de atrapar los errores y mostar un
-     * mensaje ante esta situacion.
+     * mensaje ante esta situacion. Tambien
+     * declara las ventas de boleto.
      */
     static VentasDeBoleto ventasDeBoleto = new VentasDeBoleto();
     public static void main(String[] arg) {

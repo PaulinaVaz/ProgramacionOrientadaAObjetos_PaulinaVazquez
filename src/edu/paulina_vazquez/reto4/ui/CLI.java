@@ -5,6 +5,11 @@ import java.util.Scanner;
 
 public class CLI {
     public static void showMenu (VentasDeBoleto ventasDeBoleto){
+        /**
+         * Muestra un menu para que el usuario interactue con el
+         * programa, segun la opcion que este desee. Esta
+         * interaccion finaliza cuando el usuario lo indica.
+         */
         Scanner scanner = new Scanner(System.in);
 
         while (true){
