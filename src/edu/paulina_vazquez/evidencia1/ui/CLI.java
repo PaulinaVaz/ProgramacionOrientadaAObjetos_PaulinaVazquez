@@ -1,5 +1,8 @@
 package edu.paulina_vazquez.evidencia1.ui;
 
+import edu.paulina_vazquez.evidencia1.process.Medicamentos;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
