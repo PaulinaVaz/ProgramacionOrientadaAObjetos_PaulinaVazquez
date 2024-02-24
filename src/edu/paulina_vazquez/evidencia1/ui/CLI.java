@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+/**
+ * Esta clase sirve para que el usuario interactue con la interfaz, ingresando los datos solicitados.
+ **/
+
 public class CLI {
     public static void main (String[]args){
         Date fechaActual = new Date();
@@ -45,6 +49,7 @@ public class CLI {
         /**
          * Registro de médicamentos
          **/
+
         String opcion;
         do
         {
@@ -60,8 +65,15 @@ public class CLI {
             System.out.println("Forma farmacéutica (sólida, semisólida, líquida):");
             String formaFarmaceutica = scanner.nextLine();
 
+            /**
+             * Se cálcula el precio de venta dependiendo de la forma farmacéutica.
+             **/
+
             double precioVenta = Medicamentos.calcularPrecioVenta (precioPublico, formaFarmaceutica);
 
+            /**
+             * Se agrega el medicamento a la lista de medicamentos.
+             **/
 
             Medicamentos medicamentos = new Medicamentos(nombreQuimico, nombreGenerico, nombreRegistrado, precioPublico, precioVenta, formaFarmaceutica);
             listaMedicamentos.add(medicamentos);
@@ -69,6 +81,10 @@ public class CLI {
             System.out.println("¿Desea agregar otro medicamento?");
             opcion = scanner.nextLine();
         } while (opcion.equalsIgnoreCase("sí"));
+
+        /**
+         * Se muestra el reporte en pantalla.
+         **/
 
         System.out.println("---Reporte de medicamentos---");
         System.out.println("Usuario: " + usuario);

@@ -1,5 +1,11 @@
 package edu.paulina_vazquez.evidencia1.process;
 
+/**
+ * La clase Medicamentos representa un medicamento en el catálogo de una empresa farmacéutica.
+ * Contiene información sobre el nombre químico, nombre genérico, nombre registrado, precio al público,
+ * precio de venta y forma farmacéutica del medicamento.
+ **/
+
 public class Medicamentos {
     private String nombreQuimico;
     private String nombreGenerico;
@@ -14,18 +20,26 @@ public class Medicamentos {
     }
     public String getNombreRegistrado()
     {
-
         return this.nombreRegistrado;
     }
     public double getPrecioVenta()
     {
-
         return this.precioVenta;
     }
     public double getPrecioPublico()
     {
         return this.precioPublico;
     }
+
+    /**
+     * Constructor de la clase Medicamentos.
+     * @param nombreQuimico El nombre químico del medicamento.
+     * @param nombreGenerico El nombre genérico del medicamento.
+     * @param nombreRegistrado El nombre registrado del medicamento.
+     * @param precioPublico El precio al público del medicamento.
+     * @param precioVenta El precio de venta del medicamento.
+     * @param formaFarmaceutica La forma farmacéutica del medicamento.
+     */
 
     public Medicamentos(String nombreQuimico, String nombreGenerico, String nombreRegistrado, double precioPublico, double precioVenta, String formaFarmaceutica)
     {
@@ -36,6 +50,10 @@ public class Medicamentos {
         this.precioVenta = precioVenta;
         this.formaFarmaceutica = formaFarmaceutica;
     }
+
+    /**
+     * Aquí se calcula el precio de venta del medicamento basado en el precio al público y la forma farmacéutica.
+     **/
 
     public static double calcularPrecioVenta (double precioPublico, String formaFarmaceutica)
     {
