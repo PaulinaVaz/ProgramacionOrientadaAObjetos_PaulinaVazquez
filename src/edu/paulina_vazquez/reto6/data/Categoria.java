@@ -21,11 +21,11 @@ public class Categoria {
         this.nombreDeCategoria = nombreDeCategoria;
     }
 
-    public String getClave() {
+    public String getclaveDeCategoria() {
         return claveDeCategoria;
     }
 
-    public void setClave(String clave) {
+    public void setclaveDeCategoria(String claveDeCategoria) {
         this.claveDeCategoria = claveDeCategoria;
     }
 
