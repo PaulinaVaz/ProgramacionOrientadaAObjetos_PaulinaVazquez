@@ -7,6 +7,12 @@ import edu.paulina_vazquez.reto6.process.CalculadoraDeNomina;
 import java.util.Scanner;
 
 public class CLI {
+    /**
+     * Esta clase se encarga de capturar los datos de los empleados
+     * y mostrar el menu de opciones disponibles por realizar,
+     * ademas con estos se realizan las opciones deseadas segun el
+     * usuario de recursos humanos elija.
+     */
     public static void showMenu(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Generador de nomina");
@@ -17,8 +23,12 @@ public class CLI {
 
         CalculadoraDeNomina nomina = new CalculadoraDeNomina();
 
+        /**
+         * Se ingresan los datos y se asignan sus clasificaciones correspondientes.
+         */
+
         for (int i = 0; i < cantidadEmpleados; i++) {
-            System.out.println("Captura de datos del empleado #" + (i + 1));
+            System.out.println("Captura de datos del empleado " + (i + 1));
 
             System.out.print("Nombre completo: ");
             String nombre = scanner.nextLine();
@@ -67,7 +77,9 @@ public class CLI {
                     categoria);
             nomina.agregarEmpleado(empleado, i);
         }
-
+    /**
+     * Se muestra el reporte final de las nominas.
+    */
     System.out.println("Reporte de nómina:");
     System.out.println("Nómina de la empresa: $" + nomina.calcularTotalNomina());
     System.out.println("Sueldo normal: $" + nomina.calcularTotalSueldoNormal());
