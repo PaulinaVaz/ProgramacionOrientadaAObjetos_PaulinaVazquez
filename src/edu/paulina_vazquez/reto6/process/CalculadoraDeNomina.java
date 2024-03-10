@@ -6,6 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CalculadoraDeNomina {
+
+    /**
+     * Esta clase se encarga de calcular la nomina de los empleados
+     * asi como la cantidad de personas que trabajaron horas extras
+     * y las que no.
+     */
     private List<Empleado> empleados;
 
 

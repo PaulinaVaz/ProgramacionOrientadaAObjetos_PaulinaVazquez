@@ -1,6 +1,13 @@
 package edu.paulina_vazquez.reto6.data;
 
 public class Categoria {
+
+    /**
+     * En esta clase se declaran los atributos de las categorias
+     * de los empleados como el nombre, la clave, sueldo base y
+     * pago por hora extra.
+     */
+
     private String nombreDeCategoria;
     private String claveDeCategoria;
     private double sueldoBase;

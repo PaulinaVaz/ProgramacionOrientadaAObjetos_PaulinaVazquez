@@ -1,6 +1,10 @@
 package edu.paulina_vazquez.reto6.data;
 
 public class Empleado {
+    /**
+     * Se declaran los atributos de los empleados: nombre, horas
+     * trabajadas,horas extras, entre otros.
+     */
     private String nombreDelEmpleado;
     private int horasTrabajadas;
     private int horasExtras;
