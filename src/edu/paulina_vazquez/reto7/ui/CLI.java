@@ -20,7 +20,6 @@ public class CLI {
         System.out.println("6. Potencia");
         System.out.println("7. Raiz");
         System.out.println("8. Logaritmo");
-        System.out.println("9. Salir del programa");
 
         /**
          * Dependiendo de la opcion seleccionada por el usuario se escoge la clase que
@@ -30,7 +29,7 @@ public class CLI {
         Scanner scanner = new Scanner(System.in);
         int opcionDeOperacion = scanner.nextInt();
 
-        while (true){
+        while (opcionDeOperacion >= 1){
             switch (opcionDeOperacion) {
                 case 1:
                     Suma.calcularSuma();
@@ -56,16 +55,9 @@ public class CLI {
                 case 8:
                     Logaritmo.calcularLogaritmo();
                     break;
-                case 9:
-                    System.out.println("Programa finalizado");
-                    scanner.close();
-                    return;
                 default:
                     System.out.println("Opcion no valida, por favor intentelo de nuevo");
             }
         }
-        /**
-         * Una vez finalizado el programa el scanner se cierra para no leer mas datos.
-         */
     }
 }

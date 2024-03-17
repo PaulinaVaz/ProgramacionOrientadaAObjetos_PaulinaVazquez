@@ -4,10 +4,18 @@ import java.util.Scanner;
 
 public class Potencia {
 
+    /**
+     * Esta clase se necarga del proceso de las potencias.
+     */
 
     public static void calcularPotencia(){
-        Scanner scanner = new Scanner(System.in);
 
+        /**
+         * El usuario ingresa la base y el exponente y despues
+         * del proceso se muestra el resultado en la pantalla.
+         */
+
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese la base: ");
         double base = scanner.nextDouble();
         System.out.print("Ingrese el exponente: ");
@@ -20,6 +28,14 @@ public class Potencia {
     }
 
     public static double potencia(double base, int exponente) {
+
+        /**
+         * Su suncion es calcular la potencia inicializando el
+         * exponente como 1, y en caso de que el numero no sea
+         * 0 se multiplica por si mismo el numero de veces que
+         * indique el exponente.
+         */
+
         if (exponente == 0) {
             return 1;
         }
