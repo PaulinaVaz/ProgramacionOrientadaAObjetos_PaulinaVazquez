@@ -1,11 +1,14 @@
 package edu.paulina_vazquez.reto7.ui;
 
-import edu.paulina_vazquez.reto7.process.Resta;
-import edu.paulina_vazquez.reto7.process.Suma;
+import edu.paulina_vazquez.reto7.process.*;
 
 import java.util.Scanner;
 
 public class CLI {
+    /**
+     * Esta clase es la encargado de mostrar el menu al usuario y
+     * capturar la operacion que se desea realizar.
+     */
     public static void showMenu(){
         System.out.println("Bienvenido a la calculadora aritmetica");
         System.out.println("Elija la operacion que desea ingresar");
@@ -19,9 +22,15 @@ public class CLI {
         System.out.println("8. Logaritmo");
         System.out.println("9. Salir del programa");
 
+        /**
+         * Dependiendo de la opcion seleccionada por el usuario se escoge la clase que
+         * llevara acabo el proceso hasta mostrar el resultado.
+         */
+
         Scanner scanner = new Scanner(System.in);
         int opcionDeOperacion = scanner.nextInt();
-        do {
+
+        while (true){
             switch (opcionDeOperacion) {
                 case 1:
                     Suma.calcularSuma();
@@ -30,25 +39,33 @@ public class CLI {
                     Resta.calcularResta();
                     break;
                 case 3:
-
+                    Multiplicacion.calcularMultiplicacion();
                     break;
                 case 4:
+                    Division.calcularDivision();
                     break;
                 case 5:
+                    Modulo.calcularModulo();
                     break;
                 case 6:
+                    Potencia.calcularPotencia();
                     break;
                 case 7:
+                    Raiz.calcularRaiz();
                     break;
                 case 8:
+                    Logaritmo.calcularLogaritmo();
                     break;
                 case 9:
                     System.out.println("Programa finalizado");
-                    break;
+                    scanner.close();
+                    return;
                 default:
                     System.out.println("Opcion no valida, por favor intentelo de nuevo");
             }
-        } while (opcionDeOperacion != 9);
-        scanner.close();
+        }
+        /**
+         * Una vez finalizado el programa el scanner se cierra para no leer mas datos.
+         */
     }
 }
