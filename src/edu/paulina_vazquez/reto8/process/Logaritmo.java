@@ -19,16 +19,16 @@ public class Logaritmo extends Division{
          * número y se retorna el logaritmo entero.
          */
 
-        if (x <= 0 || y <= 1) {
+        if (x <= 1 || y <= 0) {
             throw new ArithmeticException(ERROR_LOGARITMO);
         }
 
-        int logaritmo = 0;
-        int potencia = 1;
-        while (potencia <= x) {
-            potencia = super.calcular(potencia, y);
-            logaritmo++;
+        int resultado = 0;
+        int argumento = x;
+        while (argumento > 1){
+            argumento = super.calcular(argumento, y);
+            resultado++;
         }
-        return logaritmo - 1;
+        return resultado;
     }
 }

@@ -18,10 +18,21 @@ public class Raiz extends Multiplicacion{
          * resultado de la raíz.
          */
 
-        int resultado = 1;
-        for (int i = 0; i < y; i++) {
-            resultado = super.calcular(resultado, x);
+        int raiz;
+        int potenciaAcumulada = 0;
+        int validacion = 0;
+        int aproximacion = 1;
+
+        while (potenciaAcumulada < x) {
+            validacion = aproximacion;
+            potenciaAcumulada = 1;
+            for (int i = 0; i < y; i++) {
+                potenciaAcumulada = super.calcular(potenciaAcumulada, aproximacion);
+            }
+            aproximacion++;
         }
-        return resultado;
+        raiz = validacion;
+
+        return raiz;
     }
 }

@@ -16,7 +16,7 @@ public class Español extends Textos {
             "4. Multiplicación\n" +
             "5. Módulo\n" +
             "6. Potencia\n" +
-            "7. Raíz cuadrada\n" +
+            "7. Raíz\n" +
             "8. Logaritmo";
     static final String OPCION_INVALIDA = "Opción no válida, por favor inténtelo de nuevo.";
     static final String INGRESO_PRIMER_NUMERO = "Ingrese el primer número: ";

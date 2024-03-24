@@ -1,5 +1,7 @@
 package edu.paulina_vazquez.reto8.process;
 
+import static edu.paulina_vazquez.reto8.ui.Textos.ERROR_DIVISION;
+
 public class Division extends Resta{
     /**
      * Esta clase es la encargada del proceso de la division, la cual
@@ -17,7 +19,7 @@ public class Division extends Resta{
          */
 
         if (y == 0) {
-            throw new ArithmeticException("No se puede dividir por cero.");
+            throw new ArithmeticException(ERROR_DIVISION);
         }
         int resultado = 0;
         int sumaRestada = 0;
