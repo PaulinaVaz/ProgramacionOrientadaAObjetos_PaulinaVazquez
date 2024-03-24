@@ -2,6 +2,12 @@ package edu.paulina_vazquez.reto8.ui;
 
 public class Español extends Textos {
 
+    /**
+     * Esta clase es la encargada de almacenar las variables
+     * que se usan para mostrar textos al usuario en espanol,
+     * hereda de textos.
+     */
+
     static final String BIENVENIDA = "Bienvenido a la calculadora aritmética.";
     static final String MENU = "Elija la operación que desea realizar:\n" +
             "1. Suma\n" +

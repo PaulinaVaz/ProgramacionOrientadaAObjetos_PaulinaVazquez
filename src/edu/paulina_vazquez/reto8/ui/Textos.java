@@ -2,6 +2,11 @@ package edu.paulina_vazquez.reto8.ui;
 
 public class Textos {
 
+    /**
+     * Esta clase es la encargada de almacenar las variables
+     * que se usan para mostrar textos al usuario.
+     */
+
     public static String BIENVENIDA;
     public static String MENU;
     public static String OPCION_INVALIDA;
@@ -13,6 +18,11 @@ public class Textos {
     public static String ERROR_LOGARITMO;
 
     public static void setEspañol() {
+
+        /**
+         * Configura las variables en espanol.
+         */
+
         BIENVENIDA = Español.BIENVENIDA;
         MENU = Español.MENU;
         OPCION_INVALIDA = Español.OPCION_INVALIDA;
@@ -23,6 +33,10 @@ public class Textos {
         ERROR_MODULO = Español.ERROR_MODULO;
         ERROR_LOGARITMO = Español.ERROR_LOGARITMO;
     }
+
+    /**
+     * Configura las variables en ingles.
+     */
 
     public static void setEnglish() {
         BIENVENIDA = English.BIENVENIDA;

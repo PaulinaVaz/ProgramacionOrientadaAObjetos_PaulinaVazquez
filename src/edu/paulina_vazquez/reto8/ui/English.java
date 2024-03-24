@@ -2,6 +2,12 @@ package edu.paulina_vazquez.reto8.ui;
 
 public class English extends Textos {
 
+    /**
+     * Esta clase es la encargada de almacenar las variables
+     * que se usan para mostrar textos al usuario en espanol,
+     * hereda de textos.
+     */
+
     static final String BIENVENIDA = "Welcome to the arithmetic calculator.";
     static final String MENU = "Choose the operation you want to do:\n" +
             "1. Addirion\n" +
