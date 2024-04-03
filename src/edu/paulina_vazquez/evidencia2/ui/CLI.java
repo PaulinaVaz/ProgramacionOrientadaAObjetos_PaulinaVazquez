@@ -20,5 +20,13 @@ public class CLI {
                 System.out.println("Invalid option, please try again.");
                 return;
         }
+        System.out.println(Textos.USUARIO);
+        String usuario = scanner.nextLine();
+        System.out.println(Textos.CONTRASENA);
+        String contrasena = scanner.nextLine();
+
+        System.out.println(Textos.MONTO_TOTAL);
+        scanner.close();
+
     }
 }
