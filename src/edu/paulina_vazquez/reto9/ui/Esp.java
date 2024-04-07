@@ -1,6 +1,11 @@
 package edu.paulina_vazquez.reto9.ui;
 
 public class Esp extends Textos{
+    /**
+     * Hereda de Textos y almacena los escritos a mostrar al usuario
+     * en español.
+     * @return el texto en español segun sea el caso.
+     */
 
     @Override
     public String bienvenida() {

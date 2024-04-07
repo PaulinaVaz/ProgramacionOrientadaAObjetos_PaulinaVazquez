@@ -2,6 +2,12 @@ package edu.paulina_vazquez.reto9.ui;
 
 public class Eng extends Textos{
 
+    /**
+     * Hereda de Textos y almacena los escritos a mostrar al usuario
+     * en ingles.
+     * @return el texto en ingles segun sea el caso.
+     */
+
     @Override
     public String bienvenida() {
         return "Welcome to the word counter.";

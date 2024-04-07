@@ -8,7 +8,17 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CLI {
+    /**
+     * Esta clase se encarga de la interfaz que usa el programa
+     * para que el usuario interactue con el.
+     */
     public static void showMenu (){
+
+        /**
+         * Se imprime en pantalla las opciones de idioma para que
+         * el usuario elija la deseada.
+         */
+
         Textos.escogerIdioma();
         Scanner scanner = new Scanner(System.in);
         int opcionIdioma = scanner.nextInt();
@@ -26,6 +36,12 @@ public class CLI {
                 System.out.println("Opción inválida");
                 return;
         }
+
+        /**
+         * Se imprime el menu en el idioma seleccionado por el usuario
+         * y se muestran las opciones de libros.
+         */
+
         Textos textos = Textos.crearTextos(idioma);
         System.out.println(textos.bienvenida());
         System.out.println(textos.menu());
@@ -37,6 +53,12 @@ public class CLI {
                 "El cachorro del cazador",
                 "Caperucita Roja"
         );
+
+        /**
+         * Se direcciona el proceso y se imprime el resultado en pantalla,
+         * de haber un error lo notifica al usuario.
+         */
+
         for (int i = 0; i < libros.size(); i++) {
             System.out.println((i + 1) + ". " + libros.get(i));
         }
