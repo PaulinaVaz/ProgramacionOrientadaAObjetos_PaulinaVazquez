@@ -16,4 +16,24 @@ public class Eng extends Textos{
     public String opcion_invalida() {
         return "Invalid option, please try again.";
     }
+
+    @Override
+    public String palabras_repetidas() {
+        return "The 10 Most Common Words in the Book ";
+    }
+
+    @Override
+    public String palabra() {
+        return ". Word: ";
+    }
+
+    @Override
+    public String repeticiones() {
+        return ", repetitions: ";
+    }
+
+    @Override
+    public String error_lectura() {
+        return "Error reading the book file.";
+    }
 }
