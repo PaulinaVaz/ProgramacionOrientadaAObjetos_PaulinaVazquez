@@ -25,7 +25,9 @@ public class WordManager {
          * @param archivo Ruta del archivo de texto a analizar.
          * @throws IOException Si ocurre un error al leer el archivo.
          */
-        try (InputStream inputStream = getClass().getResourceAsStream("/resources/" + archivo)) {
+        String rutaArchivo = "/edu/paulina_vazquez/reto9/resources/" + archivo;
+        System.out.println("Ruta del archivo: " + rutaArchivo); // Agregar esta línea para depuración
+        try (InputStream inputStream = getClass().getResourceAsStream(rutaArchivo)) {
             if (inputStream != null) {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                 String linea;
@@ -37,7 +39,7 @@ public class WordManager {
                     }
                 }
             } else {
-                throw new FileNotFoundException("Archivo no encontrado: " + archivo);
+                throw new FileNotFoundException("Archivo no encontrado: " + rutaArchivo);
             }
         }
     }

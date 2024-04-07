@@ -47,11 +47,11 @@ public class CLI {
         System.out.println(textos.menu());
 
         List<String> libros = Arrays.asList(
-                "THE GINGERBREAD MAN",
-                "El leon y la espina",
-                "El gato y los ratones",
+                "Caperucita Roja",
                 "El cachorro del cazador",
-                "Caperucita Roja"
+                "El gato y los ratones",
+                "El leon y la espina",
+                "THE GINGERBREAD MAN"
         );
 
         /**
