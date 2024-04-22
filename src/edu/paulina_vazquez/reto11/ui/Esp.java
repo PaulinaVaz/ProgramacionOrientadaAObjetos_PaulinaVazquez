@@ -40,5 +40,35 @@ public String bienvenida() {
     public String error_lectura() {
         return "Error al leer el archivo del libro.";
     }
+    @Override
+    public String total_vocales() {
+        return "Total de vocales en el libro: ";
+    }
+
+    @Override
+    public String palabras_vocales() {
+        return "Palabras que empiezan con vocal ordenadas alfabéticamente: ";
+    }
+
+    @Override
+    public String longitud_impar() {
+        return "Palabras con longitud impar: ";
+    }
+
+    @Override
+    public String palabras_mas_larga() {
+        return "Palabra más larga: ";
+    }
+
+    @Override
+    public String palabras_mas_corta() {
+        return "Palabra más corta: ";
+    }
+
+    @Override
+    public String palabra_caso_especial() {
+        return "Existe una palabra con vocal inicial, final y longitud mayor o igual a 5: ";
+    }
 }
+
 

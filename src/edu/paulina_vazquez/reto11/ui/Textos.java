@@ -13,6 +13,12 @@ public abstract class Textos {
     public abstract String palabra ();
     public abstract String repeticiones ();
     public abstract String error_lectura ();
+    public abstract String total_vocales ();
+    public abstract String palabras_vocales ();
+    public abstract String longitud_impar ();
+    public abstract String palabras_mas_larga ();
+    public abstract String palabras_mas_corta ();
+    public abstract String palabra_caso_especial ();
 
     public static void escogerIdioma (){
 

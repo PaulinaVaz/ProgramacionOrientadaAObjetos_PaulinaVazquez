@@ -41,4 +41,35 @@ public class Eng extends Textos{
     public String error_lectura() {
         return "Error reading the book file.";
     }
+
+    @Override
+    public String total_vocales() {
+        return "Total vowels in the book: ";
+    }
+
+    @Override
+    public String palabras_vocales() {
+        return "Words that begin with vowels arranged alphabetically: ";
+    }
+
+    @Override
+    public String longitud_impar() {
+        return "Words with odd length: ";
+    }
+
+    @Override
+    public String palabras_mas_larga() {
+        return "Longest word: ";
+    }
+
+    @Override
+    public String palabras_mas_corta() {
+        return "Shortest word:";
+    }
+
+    @Override
+    public String palabra_caso_especial() {
+        return "There is a word with an initial vowel," +
+                " a final vowel and a length greater than or equal to 5";
+    }
 }
