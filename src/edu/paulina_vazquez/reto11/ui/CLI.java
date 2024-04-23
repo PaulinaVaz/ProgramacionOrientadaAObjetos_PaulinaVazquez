@@ -64,23 +64,31 @@ public class CLI {
         }
 
         int opcionLibro = scanner.nextInt();
-        scanner.nextLine();
 
         if (opcionLibro < 1 || opcionLibro > libros.size()) {
             System.out.println(textos.opcion_invalida());
             return;
         }
+
         String libroSeleccionado = libros.get(opcionLibro - 1);
-        System.out.println(textos.palabras_repetidas() + libroSeleccionado + "\":");
+        System.out.println(textos.palabras_repetidas() + "\"" + libroSeleccionado + "\":");
         try {
             WordManager wordManager = new WordManager();
             wordManager.contarPalabras(libroSeleccionado + ".txt");
             wordManager.imprimirPalabrasMasRepetidas(textos);
             System.out.println(textos.total_vocales() + wordManager.contarVocalesTotales());
-            System.out.println(textos.palabras_vocales());
-            wordManager.obtenerPalabrasConVocalInicial().forEach(System.out::println); // Llama al método correcto
+
+
+            List<String> palabrasConVocalInicial = wordManager.obtenerPalabrasConVocalInicial();
+            if (!palabrasConVocalInicial.isEmpty()) {
+                System.out.println(textos.palabras_vocales());
+                palabrasConVocalInicial.forEach(System.out::println);
+            } else {
+                System.out.println("No hay palabras que comiencen con vocal en este libro.");
+            }
+
             System.out.println(textos.longitud_impar());
-            wordManager.obtenerPalabrasConLongitudImpar().forEach(System.out::println); // Llama al método correcto
+            wordManager.obtenerPalabrasConLongitudImpar().forEach(System.out::println);
             System.out.println(textos.palabras_mas_larga() + wordManager.encontrarPalabraMasLarga());
             System.out.println(textos.palabras_mas_corta() + wordManager.encontrarPalabraMasCorta());
             System.out.println(textos.palabra_caso_especial() +

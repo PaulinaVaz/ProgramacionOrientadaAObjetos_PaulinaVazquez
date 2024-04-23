@@ -1,6 +1,6 @@
-package edu.paulina_vazquez.reto9;
+package edu.paulina_vazquez.reto11;
 
-import edu.paulina_vazquez.reto9.ui.CLI;
+import edu.paulina_vazquez.reto11.ui.CLI;
 
 public class Main {
     /**
