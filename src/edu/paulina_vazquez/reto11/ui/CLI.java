@@ -70,6 +70,12 @@ public class CLI {
             return;
         }
 
+        /**
+         * Se encarga de imprimir en pantalla todos los textos para
+         * mostrar el resultado final al usuario dependiendo del
+         * libro elegido.
+         */
+
         String libroSeleccionado = libros.get(opcionLibro - 1);
         System.out.println(textos.palabras_repetidas() + "\"" + libroSeleccionado + "\":");
         try {
