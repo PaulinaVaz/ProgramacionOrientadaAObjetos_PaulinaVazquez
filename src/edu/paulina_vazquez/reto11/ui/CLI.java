@@ -1,6 +1,6 @@
-package edu.paulina_vazquez.reto9.ui;
+package edu.paulina_vazquez.reto11.ui;
 
-import edu.paulina_vazquez.reto9.process.WordManager;
+import edu.paulina_vazquez.reto11.process.WordManager;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -19,7 +19,7 @@ public class CLI {
          * el usuario elija la deseada.
          */
 
-        Textos.escogerIdioma();
+        edu.paulina_vazquez.reto11.ui.Textos.escogerIdioma();
         Scanner scanner = new Scanner(System.in);
         int opcionIdioma = scanner.nextInt();
         scanner.nextLine();
@@ -42,7 +42,7 @@ public class CLI {
          * y se muestran las opciones de libros.
          */
 
-        Textos textos = Textos.crearTextos(idioma);
+        edu.paulina_vazquez.reto11.ui.Textos textos = Textos.crearTextos(idioma);
         System.out.println(textos.bienvenida());
         System.out.println(textos.menu());
 
@@ -64,18 +64,41 @@ public class CLI {
         }
 
         int opcionLibro = scanner.nextInt();
-        scanner.nextLine();
 
         if (opcionLibro < 1 || opcionLibro > libros.size()) {
             System.out.println(textos.opcion_invalida());
             return;
         }
+
+        /**
+         * Se encarga de imprimir en pantalla todos los textos para
+         * mostrar el resultado final al usuario dependiendo del
+         * libro elegido.
+         */
+
         String libroSeleccionado = libros.get(opcionLibro - 1);
-        System.out.println(textos.palabras_repetidas() + libroSeleccionado + "\":");
+        System.out.println(textos.palabras_repetidas() + "\"" + libroSeleccionado + "\":");
         try {
             WordManager wordManager = new WordManager();
             wordManager.contarPalabras(libroSeleccionado + ".txt");
             wordManager.imprimirPalabrasMasRepetidas(textos);
+            System.out.println(textos.total_vocales() + wordManager.contarVocalesTotales());
+
+
+            List<String> palabrasConVocalInicial = wordManager.obtenerPalabrasConVocalInicial();
+            if (!palabrasConVocalInicial.isEmpty()) {
+                System.out.println(textos.palabras_vocales());
+                palabrasConVocalInicial.forEach(System.out::println);
+            } else {
+                System.out.println("No hay palabras que comiencen con vocal en este libro.");
+            }
+
+            System.out.println(textos.longitud_impar());
+            wordManager.obtenerPalabrasConLongitudImpar().forEach(System.out::println);
+            System.out.println(textos.palabras_mas_larga() + wordManager.encontrarPalabraMasLarga());
+            System.out.println(textos.palabras_mas_corta() + wordManager.encontrarPalabraMasCorta());
+            System.out.println(textos.palabra_caso_especial() +
+                    (wordManager.verificarExistenciaPalabraConVocalInicialFinalYLargo() ? "Sí" : "No"));
         } catch (IOException e) {
             System.out.println(textos.error_lectura());
         }
