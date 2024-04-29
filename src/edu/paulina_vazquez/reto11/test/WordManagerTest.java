@@ -5,8 +5,14 @@ import edu.paulina_vazquez.reto11.ui.Esp;
 import edu.paulina_vazquez.reto11.ui.Textos;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.*;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -51,24 +57,44 @@ public class WordManagerTest {
     public void imprimirPalabrasMasRepetidasConMapaVacio() {
         WordManager wordManager = new WordManager();
         Textos textos = new Esp();
-        String output = wordManager.imprimirPalabrasMasRepetidas(textos);
-        assertEquals("No debería haber salida cuando el mapa de palabras está vacío", "", output);
+        wordManager.setMapaPalabras(new HashMap<>());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+        wordManager.imprimirPalabrasMasRepetidas(textos);
+        assertEquals("No debería haber salida cuando el mapa de palabras está vacío", "",
+                outputStream.toString());
     }
 
     @Test
-    public void imprimirPalabrasMasRepetidasConPalabrasEnElMapa() {
+    public void imprimirPalabrasMasRepetidasConArchivoPruebas() throws IOException {
         WordManager wordManager = new WordManager();
         Textos textos = new Esp();
-        Map<String, Integer> mapaPalabras = new HashMap<>();
-        mapaPalabras.put("word1", 10);
-        mapaPalabras.put("word2", 20);
-        mapaPalabras.put("word3", 30);
-        wordManager.setMapaPalabras(mapaPalabras);
-        String expectedOutput = "1 Palabra: word3, repeticiones: 30\n" +
-                "2 Palabra: word2, repeticiones: 20\n" +
-                "3 Palabra: word1, repeticiones: 10\n";
-        String output = wordManager.imprimirPalabrasMasRepetidas(textos);
-        assertEquals("La salida no coincide con lo esperado", expectedOutput, output);
+        String nombreArchivo = "pruebas.txt";
+        wordManager.contarPalabras(nombreArchivo);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+        wordManager.imprimirPalabrasMasRepetidas(textos);
+        String expectedOutput = "1 Palabra: adios, repeticiones: 1\n" +
+                "2 Palabra: casa, repeticiones: 1\n" +
+                "3 Palabra: gato, repeticiones: 1\n" +
+                "4 Palabra: hola, repeticiones: 1\n" +
+                "5 Palabra: Perro, repeticiones: 1\n";
+        assertEquals("La salida no coincide con lo esperado", expectedOutput, outputStream.toString());
+    }
+
+    @Test
+    public void imprimirPalabrasMasRepetidasConArchivoInexistente() {
+        WordManager wordManager = new WordManager();
+        Textos textos = new Esp();
+        String nombreArchivo = "archivo_inexistente.txt";
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+        assertThrows(FileNotFoundException.class, () -> wordManager.contarPalabras(nombreArchivo));
+        assertEquals("No debería haber salida cuando el archivo no existe", "",
+                outputStream.toString());
     }
 
     @Test
