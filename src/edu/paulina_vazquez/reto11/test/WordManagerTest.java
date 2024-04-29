@@ -1,6 +1,7 @@
 package edu.paulina_vazquez.reto11.test;
 
 import edu.paulina_vazquez.reto11.process.WordManager;
+import edu.paulina_vazquez.reto11.ui.Esp;
 import edu.paulina_vazquez.reto11.ui.Textos;
 import org.junit.Test;
 
@@ -47,41 +48,27 @@ public class WordManagerTest {
     }
 
     @Test
-    public void imprimirPalabrasMasRepetidasOrdenCorrectoTest() {
+    public void imprimirPalabrasMasRepetidasConMapaVacio() {
         WordManager wordManager = new WordManager();
-        Map<String, Integer> mapaPalabras = wordManager.getMapaPalabras();
+        Textos textos = new Esp();
+        String output = wordManager.imprimirPalabrasMasRepetidas(textos);
+        assertEquals("No debería haber salida cuando el mapa de palabras está vacío", "", output);
+    }
+
+    @Test
+    public void imprimirPalabrasMasRepetidasConPalabrasEnElMapa() {
+        WordManager wordManager = new WordManager();
+        Textos textos = new Esp();
+        Map<String, Integer> mapaPalabras = new HashMap<>();
         mapaPalabras.put("word1", 10);
         mapaPalabras.put("word2", 20);
         mapaPalabras.put("word3", 30);
-        Textos textos = new Textos("Español");
-        String printedOutput = imprimirPalabrasMasRepetidas(wordManager, textos);
-        assertEquals("Incorrect output",
-                "1Palabra: word330\n2Palabra: word220\n3Palabra: word110", printedOutput);
-    }
-
-    // Método auxiliar para simular la salida impresa en la consola
-    private String imprimirPalabrasMasRepetidas(WordManager wordManager, Textos textos) {
-        StringBuilder output = new StringBuilder();
-        PriorityQueue<Map.Entry<String, Integer>> heap =
-                new PriorityQueue<>(Comparator.comparingInt(Map.Entry::getValue));
-        for (Map.Entry<String, Integer> entry : wordManager.getMapaPalabras().entrySet()) {
-            heap.offer(entry);
-            if (heap.size() > 10) {
-                heap.poll();
-            }
-        }
-
-        List<Map.Entry<String, Integer>> top10 = new ArrayList<>();
-        while (!heap.isEmpty()) {
-            top10.add(heap.poll());
-        }
-
-        for (int i = 0; i < top10.size(); i++) {
-            Map.Entry<String, Integer> entry = top10.get(i);
-            output.append((i + 1)).append(textos.palabra()).append(entry.getKey()).append(textos.repeticiones())
-                    .append(entry.getValue()).append("\n");
-        }
-        return output.toString();
+        wordManager.setMapaPalabras(mapaPalabras);
+        String expectedOutput = "1 Palabra: word3, repeticiones: 30\n" +
+                "2 Palabra: word2, repeticiones: 20\n" +
+                "3 Palabra: word1, repeticiones: 10\n";
+        String output = wordManager.imprimirPalabrasMasRepetidas(textos);
+        assertEquals("La salida no coincide con lo esperado", expectedOutput, output);
     }
 
     @Test
@@ -145,10 +132,8 @@ public class WordManagerTest {
         wordManager.getMapaPalabras().put("gato", 1);
         wordManager.getMapaPalabras().put("libro", 1);
 
-        // Act
         List<String> palabras = wordManager.obtenerPalabrasConLongitudImpar();
 
-        // Assert
         assertEquals(2, palabras.size());
         assertTrue(palabras.contains("casa"));
         assertTrue(palabras.contains("gato"));
@@ -156,16 +141,14 @@ public class WordManagerTest {
 
     @Test
     public void obtenerPalabrasConLongitudImparListaVacíaTest() {
-        // Arrange
+
         WordManager wordManager = new WordManager();
         wordManager.getMapaPalabras().put("hola", 1);
         wordManager.getMapaPalabras().put("gato", 1);
         wordManager.getMapaPalabras().put("perro", 1);
 
-        // Act
         List<String> palabras = wordManager.obtenerPalabrasConLongitudImpar();
 
-        // Assert
         assertTrue(palabras.isEmpty());
     }
     @Test
@@ -187,6 +170,63 @@ public class WordManagerTest {
         wordManager.getMapaPalabras().put("pera", 1);
         String palabraMasLarga = wordManager.encontrarPalabraMasLarga();
         assertEquals("naranja", palabraMasLarga);
+    }
+    @Test
+    public void encontrarPalabraMasCortaPalabraMasCortaCorrecta() {
+        Map<String, Integer> mapaPalabras = new HashMap<>();
+        mapaPalabras.put("casa", 1);
+        mapaPalabras.put("perro", 2);
+        mapaPalabras.put("adios", 3);
+
+
+        String palabraMasCorta = mapaPalabras.keySet().stream()
+                .min((s1, s2) -> Integer.compare(s1.length(), s2.length()))
+                .orElse("");
+        assertEquals("casa", palabraMasCorta);
+    }
+    @Test
+    public void encontrarPalabraMasCortaListaVaciaTest() {
+
+        Map<String, Integer> mapaPalabras = new HashMap<>();
+        String palabraMasCorta = mapaPalabras.keySet().stream()
+                .min((s1, s2) -> Integer.compare(s1.length(), s2.length()))
+                .orElse("");
+        assertEquals("", palabraMasCorta);
+    }
+    @Test
+    public void verificarPalabraConVocalInicialFinalYLargoCumpleCriteriosTest() {
+        WordManager wordManager = new WordManager();
+
+        String palabra = "oruga";
+
+        assertTrue(wordManager.verificarPalabraConVocalInicialFinalYLargo(palabra));
+    }
+
+    @Test
+    public void verificarPalabraConVocalInicialFinalYLargoNoCumpleCriteriosTest() {
+        WordManager wordManager = new WordManager();
+
+        String palabra = "gato";
+
+        assertFalse(wordManager.verificarPalabraConVocalInicialFinalYLargo(palabra));
+    }
+    @Test
+    public void verificarExistenciaPalabraConVocalInicialFinalYLargoExisteTest() {
+        WordManager wordManager = new WordManager();
+        wordManager.getMapaPalabras().put("banana", 1);
+        wordManager.getMapaPalabras().put("perro", 1);
+
+        assertTrue(wordManager.verificarExistenciaPalabraConVocalInicialFinalYLargo());
+    }
+
+    @Test
+    public void verificarExistenciaPalabraConVocalInicialFinalYLargoNoExisteTest() {
+        WordManager wordManager = new WordManager();
+
+        wordManager.getMapaPalabras().put("gato", 1);
+        wordManager.getMapaPalabras().put("casa", 1);
+
+        assertFalse(wordManager.verificarExistenciaPalabraConVocalInicialFinalYLargo());
     }
 }
 
