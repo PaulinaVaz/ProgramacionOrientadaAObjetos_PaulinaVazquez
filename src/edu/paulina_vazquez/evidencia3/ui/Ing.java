@@ -15,4 +15,9 @@ public class Ing extends Textos{
     public String opcion_invalida() {
         return null;
     }
+
+    @Override
+    public String ingreso_casilla() {
+        return null;
+    }
 }

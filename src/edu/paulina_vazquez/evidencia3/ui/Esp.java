@@ -16,4 +16,9 @@ public class Esp extends Textos {
     public String opcion_invalida() {
         return "Opcion invalida, por favor intente de nuevo.";
     }
+
+    @Override
+    public String ingreso_casilla() {
+        return ", ingresa la fila y columna para tu movimiento (ejemplo: 0 1): ";
+    }
 }

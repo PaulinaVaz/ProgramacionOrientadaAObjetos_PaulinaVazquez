@@ -4,6 +4,7 @@ public abstract class Textos {
     public abstract String bienvenida();
     public abstract String opcion_de_juego();
     public abstract String opcion_invalida();
+    public abstract String ingreso_casilla();
     public static void escogerIdioma (){
 
         /**

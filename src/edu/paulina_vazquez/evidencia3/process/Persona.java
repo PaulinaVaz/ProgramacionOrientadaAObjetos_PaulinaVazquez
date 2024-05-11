@@ -13,7 +13,7 @@ public class Persona extends Jugador{
         Scanner scanner = new Scanner(System.in);
         int row, col;
         do {
-            System.out.print(nombre + ", ingresa la fila y columna para tu movimiento (ejemplo: 0 1): ");
+            System.out.print(nombre + textos.ingreso_casilla());
             row = scanner.nextInt();
             col = scanner.nextInt();
         } while (!tablero.colocarSimbolo(row, col, simbolo));

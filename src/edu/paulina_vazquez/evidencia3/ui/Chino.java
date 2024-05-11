@@ -16,4 +16,9 @@ public class Chino extends Textos{
     public String opcion_invalida() {
         return "选项无效，请重试。";
     }
+
+    @Override
+    public String ingreso_casilla() {
+        return null;
+    }
 }
